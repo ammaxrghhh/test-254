@@ -1,0 +1,202 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This Website created as to complete my individual assignment IML254 as a Library Informatics student (CDIM144).">
+    <meta name="keywords" content="myself, personal details, photos, videos, personal informations, profiles ">
+    <meta name="author" content="Muhammad Ammar Bin Khamisan">
+    <title>My Personal Website</title>
+
+    <style>
+        body {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        header {
+            background-color: #000;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        header img {
+            height: 70px; 
+            margin-right: 20px;
+        }
+        header h1 {
+            margin: 0;
+            flex-grow: 1;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #000080;
+            position: fixed;
+            top: 90px;
+            width: 100%;
+            z-index: 1;
+        }
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav li {
+            position: relative;
+        }
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 20px 20px;
+            cursor: pointer;
+        }
+        nav li:hover > a {
+            background-color: #FF0000;
+        }
+        nav ul ul {
+            display: none;
+            position: absolute;
+            top: 50px;
+            left: 0;
+            background-color: #000;
+            flex-direction: column;
+            width: 200px;
+            z-index: 2;
+        }
+        nav ul li:hover > ul {
+            display: flex;
+        }
+        nav ul ul a {
+            padding: 10px 20px;
+        }
+        nav ul ul li a img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+        nav ul ul li:hover a img {
+            width: 20px; 
+            height: 20px; 
+        }
+        .content {
+            position: absolute;
+            top: 120px;
+            bottom: 0;
+            width: 100%;
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 3px;
+            
+        }
+        .search-bar button {
+            padding: 7px 7px;
+            border: none;
+            border-radius: 3px;
+            margin-right: 30px;
+            background-color: #ff0000;
+            color: white;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #cc0000;
+        }
+        .search-results {
+            padding: 5px;
+        }
+        .search-results h2 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div style="display: flex; align-items: center;">
+            <img src="image/Vouge.png" alt="Logo">
+            <h1>Vogue Men store</h1>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search...">
+            <button type="button" onclick="performSearch()">Search</button>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="home.html" target="contentFrame">Home</a></li>
+            <li>
+                <a class="non-clickable">Shirt</a>
+                <ul>
+                    <li><a href="allshirt.html" target="contentFrame">All Shirt</a></li>
+                    <li><a href="classicstyles.html" target="contentFrame">Classic Styles</a></li>
+                    <li><a href="streetwear.html" target="contentFrame">Streetwear</a></li>
+                </ul>
+            </li>
+            <li>
+                <a class="non-clickable">Pants</a>
+                <ul>
+                    <li><a href="allpants.html" target="contentFrame">All Pants</a></li>
+                </ul>
+            </li>
+            <li><a href="bags.html" target="contentFrame">Bags</a></li>
+            <li><a href="accesories.html" target="contentFrame">Accessories</a></li>
+            <li><a href="shoes.html" target="contentFrame">Shoes</a></li>
+            <li><a href="gallery.html" target="contentFrame">Gallery</a></li>
+            <li><a href="group.html" target="contentFrame">Group Member</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <iframe src="home.html" name="contentFrame" style="width:100%; height:99%; border:none;"></iframe>
+        <div class="search-results" id="search-results"></div>
+    </div>
+
+    <script>
+        function performSearch() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            const resultsContainer = document.getElementById('search-results');
+            const searchContent = {
+                home: "Welcome to the Vogue Men store home page.",
+                shirts: "Check out our collection of shirts including all shirts, classic styles, and streetwear.",
+                pants: "Explore our variety of pants.",
+                bags: "Discover our range of bags.",
+                accessories: "Find the perfect accessories to match your style.",
+                shoes: "Browse through our selection of shoes.",
+                gallery: "View our gallery.",
+                group: "Meet our group members."
+            };
+            
+            resultsContainer.innerHTML = '';
+
+            for (const key in searchContent) {
+                if (searchContent[key].toLowerCase().includes(query)) {
+                    const result = document.createElement('div');
+                    result.innerHTML = `<h2>${key.charAt(0).toUpperCase() + key.slice(1)}</h2><p>${searchContent[key]}</p>`;
+                    resultsContainer.appendChild(result);
+                }
+            }
+
+            if (resultsContainer.innerHTML === '') {
+                resultsContainer.innerHTML = '<p>No results found.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

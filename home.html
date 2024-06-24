@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+<head>
+    <style>
+        footer {
+            background-color: #000;
+            color: white;
+            padding: 20px 0;
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            margin-top: 100px;
+            text-align: left;
+        }
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 15px; 
+        }
+        .footer-section {
+            margin: 20px;
+            flex: 1;
+            min-width: 200px;
+        }
+        .footer-section h3 {
+            border-bottom: 1px solid white;
+            font-size: 15px;
+            padding-bottom: 10px;
+        }
+        .footer-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .footer-section ul li {
+            margin: 10px 0;
+        }
+        .footer-section ul li a,
+        .footer-section p a {
+            color: white; 
+            text-decoration: none;
+        }
+        .footer-section ul li a:hover,
+        .footer-section p a:hover {
+            color: yellow; 
+            text-decoration: underline;
+        }
+        .footer-contact p,
+        .footer-contact a {
+            color: white;
+        }
+        .footer-contact a {
+            text-decoration: none;
+        }
+        .footer-contact a:hover {
+            color: yellow;
+            text-decoration: underline;
+        }
+        .footer-copyright {
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid #555;
+            padding-top: 10px;
+            font-size: 14px;
+        }
+        .social-icons {
+            margin-top: 20px;
+            text-align: left;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        .social-icons a img {
+            width: 30px; /* Adjust size as needed */
+            height: 30px; /* Adjust size as needed */
+        }
+        .social-icons a:hover img {
+            filter: brightness(0.8); /* Darkens icon on hover */
+        }
+        .video {
+            margin: 20px;
+            text-align: center;
+            flex: 1 100%; /* Ensure the video section takes full width */
+        }
+        .video video {
+            max-width: 100%;
+            height: auto;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="video">
+            <video src="video/introvid.mp4" alt="Hi Welcome" loop autoplay muted></video>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section footer-about">
+                <h3>ABOUT US</h3>
+                <p>Welcome to Vogue Men Store! where classic style and cutting-edge design of masculine mans out there. We also will handpick a line of men's apparel that combines modern flair with flawless craftsmanship final product.</p>
+                <ul>
+                    <li><a href="aboutus.html" target="_blank">More About Us</a></li>
+                    <li><a href="term.html" target="_blank">Terms and Conditions</a></li>
+                    <li><a href="privacy.html" target="_blank">Privacy and Policies</a></li>
+                    <li><a href="meetus.html" target="_blank">Meet Us</a></li>
+                </ul>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/yourprofile" target="_blank"><img src="image/instagram.png" alt="Instagram"></a>
+                    <a href="https://www.tiktok.com/@yourprofile" target="_blank"><img src="image/tiktok.png" alt="TikTok"></a>
+                    <a href="https://t.me/yourprofile" target="_blank"><img src="image/telegram.png" alt="Telegram"></a>
+                    <a href="https://wa.me/yourphonenumber" target="_blank"><img src="image/whatsapp.png" alt="WhatsApp"></a>
+                    <a href="https://www.facebook.com/yourprofile" target="_blank"><img src="image/facebook.png" alt="Facebook"></a>
+                </div>
+            </div>
+            <div class="footer-section footer-contact">
+                <h3>LOCATIONS</h3>
+                <h4>Our HQ Location</h4>
+                <p>Vogue Men Store, Lot 332, Level 3, Suria KLCC, 50088, Federal Territory of Kuala Lumpur, Malaysia. </p>
+                <h4>Our Branches</h4>
+                <ul>
+                    <li>
+                        <p><strong>City Square Mall:</strong> <a href="https://maps.app.goo.gl/yUHLrrZ1FeWoxBVp6" target="_blank">Lot 224, Level 2, City Square Mall, 80000, Johor Bahru, Johor, Malaysia</a></p>
+                    </li>
+                    <li>
+                        <p><strong>Sunway Pyramid:</strong> <a href="https://maps.app.goo.gl/mL9m1P7voKevX2sv7" target="_blank">Lot 221, Level 1, Sunway Pyramid, Petaling Jaya, 47500, Selangor, Malaysia</a></p>
+                    </li>
+                    <li>
+                        <p><strong>Aman Central:</strong> <a href="https://maps.app.goo.gl/FBbL2nEZANPWWFKW7" target="_blank">Lot 122, Level 1, Aman Central, Alor Setar, 05000, Kedah, Malaysia</a></p>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-section footer-branches">
+                <h3>REFERENCES</h3>
+                <h4><p>Customer Service Number (copy to clipboard)</p></h4>
+                <p><a id="phone1" onclick="copyToClipboard('phone1')">+6014 - 930 7134</a></p>
+                <h4><p>E-mail for any inquiries (copy to clipboard)</p></h4>
+                <p><a id="email" onclick="copyToClipboard('email')">khamisanammar@gmail.com</a></p>
+                <ul>
+                    <li><p><strong>Store Hours:</strong> 9am - 9pm, open on Sunday to Friday (Closed on Saturday)</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-copyright">
+            &copy; Vogue Men Store, LCC. All rights reserved 2024.
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard(elementId) {
+            var textToCopy = document.getElementById(elementId).innerText;
+            var tempInput = document.createElement('input');
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            alert('Copied to clipboard: ' + textToCopy);
+        }
+    </script>
+</body>
+
+</html>

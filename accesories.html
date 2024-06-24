@@ -1,0 +1,701 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bags collection at Broski Men Store.">
+    <meta name="keywords" content="bags, backpacks, men bags, travel bags, Broski Men Store">
+    <meta name="author" content="Muhammad Ammar Bin Khamisan">
+    <title>Accesories - Vogue Men</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .personal-info {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .personal-info h1 {
+            font-family: 'algerian', Times, serif;
+            font-size: 70px;
+            color: rgba(15, 15, 12, 0.821);
+        }
+
+        div.gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+            width: 180px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: opacity 0.5s ease;
+        }
+
+        div.gallery:hover {
+            border: 1px solid #000;
+            box-shadow: 0 0 5px 1px #B2DBD5;
+        }
+        div.gallery img {
+            width: 100%;
+            height: auto;
+            text-align: center;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+            background-color: rgba(250, 249, 249, 0.8);
+            color: black;
+            z-index: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .personal-info {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .personal-info h1 {
+            font-family: 'algerian', Times, serif;
+            font-size: 70px;
+            color: rgba(15, 15, 12, 0.821);
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            width: 100%;
+            opacity: 0;
+            transition: height 0.5s ease, opacity 0.5s ease;
+            background-color: #2B616D;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .gallery:hover .overlay {
+            height: 50%;
+            opacity: 1;
+        }
+
+        .overlay-text {
+            color: black;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            opacity: 1;
+            transition: opacity 1s ease;
+        }
+
+        .gallery:hover .overlay-text {
+            opacity: 1;
+        }
+
+        .gallery:hover .desc {
+            opacity: 0;
+        }
+
+        .slider-row {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .slideshow-container {
+            max-width: 200px;
+            position: relative;
+            margin: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 10px;
+            margin-top: -22px;
+            color: black;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .text {
+            color: #fff;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        .mySlides {
+            display: none
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        .slide-content {
+            position: relative;
+        }
+
+        .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 0;
+            width: 100%;
+            opacity: 0;
+            transition: height 0.5s ease, opacity 0.5s ease;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .slide-overlay-text {
+            color: 	#000;
+            font-size: 15px;
+            font-family: Arial, sans-serif;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .slide-content:hover .slide-overlay {
+            height: 30%;
+            opacity: 0.7;
+        }
+
+        .slide-content:hover .slide-overlay-text {
+            opacity: 1;
+        }
+
+        .slide-content:hover .text {
+            opacity: 0;
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from {
+                opacity: .4
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @media only screen and (max-width: 300px) {
+            .prev,
+            .next,
+            .text {
+                font-size: 11px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="personal-info">
+        <hr>
+        <h1>Make your day colourful with accesories</h1>
+        <hr>
+    </section>
+
+    <div class="slider-row">
+        <div class="slideshow-container">
+            <div class="slide-content">
+                <div class="mySlides1 fade">
+                    <div class="numbertext">1 / 2</div>
+                    <img src="image/watch1.jpg" style="width:100%">
+                    <div class="text"><b>ChronoMaster Elite</b></div>
+                    <div class="slide-overlay">
+                        <div class="slide-overlay-text"><b>NAME</b>: <i>ChronoMaster Elite</i><br> <b>Price</b>: <i>MYR 699</i><br> <b>Code watch</b>: <i>W1</i></div>
+                    </div>
+                </div>
+            </div>
+
+            <a class="prev" onclick="plusSlides1(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides1(1)">&#10095;</a>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="slide-content">
+                <div class="mySlides2 fade">
+                    <div class="numbertext">1 / 2</div>
+                    <img src="image/watch3.jpg" style="width:100%">
+                    <div class="text">PrecisionCrafted Timepiece</div>
+                    <div class="slide-overlay">
+                        <div class="slide-overlay-text"><b>NAME</b>: <i>PrecisionCrafted Timepiece</i><br> <b>Price</b>: <i>MYR 799</i><br> <b>Code watch</b>: <i>W2</i></div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a class="prev" onclick="plusSlides2(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides2(1)">&#10095;</a>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="slide-content">
+                <div class="mySlides3 fade">
+                    <div class="numbertext">1 / 2</div>
+                    <img src="image/watch5.jpg" style="width:100%">
+                    <div class="text">Midnight Luxe</div>
+                    <div class="slide-overlay">
+                        <div class="slide-overlay-text"><b>NAME</b>: <i>Midnight Luxe</i><br> <b>Price</b>: <i>MYR 899</i><br> <b>Code watch</b>: <i>W3</i></div>
+                    </div>
+                </div>
+            </div>
+
+            <a class="prev" onclick="plusSlides3(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides3(1)">&#10095;</a>
+        </div>
+        <div class="slideshow-container">
+            <div class="slide-content">
+                <div class="mySlides4 fade">
+                    <div class="numbertext">1 / 2</div>
+                    <img src="image/watch7.jpg" style="width:100%">
+                    <div class="text">Oceanic Explorer</div>
+                    <div class="slide-overlay">
+                        <div class="slide-overlay-text"><b>NAME</b>: <i>Oceanic Explorer</i><br> <b>Price</b>: <i>MYR 999</i><br> <b>Code watch</b>: <i>W4</i></div>
+                    </div>
+                </div>
+            </div>
+
+            <a class="prev" onclick="plusSlides4(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides4(1)">&#10095;</a>
+        </div>
+
+        <section class="personal-info">
+            <hr>
+            <h1>Spec</h1>
+            <hr>
+
+            <div class="content">
+                <div class="gallery">
+                    <a target="_blank" href="image/spec1.jpg">
+                        <img src="image/spec1.jpg" alt="Forest" width="600" height="400">
+                        <div class="overlay">
+                            <div class="overlay-text">200 unit</div>
+                        </div>
+                    </a>
+                    <div class="desc">Visionary Spectacles</div>
+                </div>
+    
+                
+                <div class="gallery">
+                    <a target="_blank" href="image/spec5.jpg">
+                        <img src="image/spec5.jpg" alt="Mountains" width="600" height="400">
+                        <div class="overlay">
+                            <div class="overlay-text">300 unit</div>
+                        </div>
+                    </a>
+                    <div class="desc">UrbanChic Frames</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="personal-info">
+            <hr>
+            <h1>Landyard</h1>
+            <hr>
+
+            <div class="content">
+                <div class="gallery">
+                    <a target="_blank" href="image/new_arrival2.jpg">
+                        <img src="image/landyard1.jpg" alt="Forest" width="600" height="400">
+                        <div class="overlay">
+                            <div class="overlay-text">Limited Edition</div>
+                        </div>
+                    </a>
+                    <div class="desc">EverGlide Tote</div>
+                </div>
+        
+                <div class="gallery">
+                    <a target="_blank" href="image/new_arrival1.jpg">
+                        <img src="image/landyard2.jpg" alt="Mountains" width="600" height="400">
+                        <div class="overlay">
+                            <div class="overlay-text">Limited Edition</div>
+                        </div>
+                    </a>
+                    <div class="desc">MetroElite Backpack</div>
+                </div>
+
+                <div class="gallery">
+                    <a target="_blank" href="image/new_arrival1.jpg">
+                        <img src="image/landyard3.jpg" alt="Mountains" width="600" height="400">
+                        <div class="overlay">
+                            <div class="overlay-text">Limited Edition</div>
+                        </div>
+                    </a>
+                    <div class="desc">MetroElite Backpack</div>
+                </div>
+            </div>
+        
+        </section>
+        
+    
+      
+
+    <script>
+        let slideIndex1 = 1;
+        showSlides1(slideIndex1);
+
+        function plusSlides1(n) {
+            showSlides1(slideIndex1 += n);
+        }
+
+        function currentSlide1(n) {
+            showSlides1(slideIndex1 = n);
+        }
+
+        function showSlides1(n) {
+            let i;
+            let slides1 = document.getElementsByClassName("mySlides1");
+            if (n > slides1.length) {
+                slideIndex1 = 1
+            }
+            if (n < 1) {
+                slideIndex1 = slides1.length
+            }
+            for (i = 0; i < slides1.length; i++) {
+                slides1[i].style.display = "none";
+            }
+            slides1[slideIndex1 - 1].style.display = "block";
+        }
+
+        let slideIndex2 = 1;
+        showSlides2(slideIndex2);
+
+        function plusSlides2(n) {
+            showSlides2(slideIndex2 += n);
+        }
+
+        function currentSlide2(n) {
+            showSlides2(slideIndex2 = n);
+        }
+
+        function showSlides2(n) {
+            let i;
+            let slides2 = document.getElementsByClassName("mySlides2");
+            if (n > slides2.length) {
+                slideIndex2 = 1
+            }
+            if (n < 1) {
+                slideIndex2 = slides2.length
+            }
+            for (i = 0; i < slides2.length; i++) {
+                slides2[i].style.display = "none";
+            }
+            slides2[slideIndex2 - 1].style.display = "block";
+        }
+
+        let slideIndex3 = 1;
+        showSlides3(slideIndex3);
+
+        function plusSlides3(n) {
+            showSlides3(slideIndex3 += n);
+        }
+
+        function currentSlide3(n) {
+            showSlides3(slideIndex3 = n);
+        }
+
+        function showSlides3(n) {
+            let i;
+            let slides3 = document.getElementsByClassName("mySlides3");
+            if (n > slides3.length) {
+                slideIndex3 = 1
+            }
+            if (n < 1) {
+                slideIndex3 = slides3.length
+            }
+            for (i = 0; i < slides3.length; i++) {
+                slides3[i].style.display = "none";
+            }
+            slides3[slideIndex3 - 1].style.display = "block";
+        }
+
+        let slideIndex4 = 1;
+        showSlides4(slideIndex4);
+
+        function plusSlides4(n) {
+            showSlides4(slideIndex4 += n);
+        }
+
+        function currentSlide4(n) {
+            showSlides4(slideIndex4 = n);
+        }
+
+        function showSlides4(n) {
+            let i;
+            let slides4 = document.getElementsByClassName("mySlides4");
+            if (n > slides4.length) {
+                slideIndex4 = 1
+            }
+            if (n < 1) {
+                slideIndex4 = slides4.length
+            }
+            for (i = 0; i < slides4.length; i++) {
+                slides4[i].style.display = "none";
+            }
+            slides4[slideIndex4 - 1].style.display = "block";
+        }
+
+        let slideIndex5 = 1;
+        showSlides5(slideIndex5);
+
+        function plusSlides5(n) {
+            showSlides5(slideIndex5 += n);
+        }
+
+        function currentSlide5(n) {
+            showSlides5(slideIndex5 = n);
+        }
+
+        function showSlides5(n) {
+            let i;
+            let slides5 = document.getElementsByClassName("mySlides5");
+            if (n > slides5.length) {
+                slideIndex5 = 1
+            }
+            if (n < 1) {
+                slideIndex5 = slides5.length
+            }
+            for (i = 0; i < slides5.length; i++) {
+                slides5[i].style.display = "none";
+            }
+            slides5[slideIndex5 - 1].style.display = "block";
+        }
+
+        let slideIndex6 = 1;
+        showSlides6(slideIndex6);
+
+        function plusSlides6(n) {
+            showSlides6(slideIndex6 += n);
+        }
+
+        function currentSlide6(n) {
+            showSlides6(slideIndex6 = n);
+        }
+
+        function showSlides6(n) {
+            let i;
+            let slides6 = document.getElementsByClassName("mySlides6");
+            if (n > slides6.length) {
+                slideIndex6 = 1
+            }
+            if (n < 1) {
+                slideIndex6 = slides6.length
+            }
+            for (i = 0; i < slides6.length; i++) {
+                slides6[i].style.display = "none";
+            }
+            slides6[slideIndex6 - 1].style.display = "block";
+        }
+    </script>
+    <head>
+        <style>
+            footer {
+                background-color: #000;
+                color: white;
+                padding: 20px 0;
+                font-family: 'Roboto', sans-serif;
+                font-size: 14px;
+                margin-top: 100px;
+                text-align: left;
+            }
+            .footer-content {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                max-width: 2800px; 
+                margin: 0 auto; 
+                padding: 0 15px; 
+            }
+            .footer-section {
+                margin: 20px;
+                flex: 1;
+                min-width: 200px;
+            }
+            .footer-section h3 {
+                border-bottom: 1px solid white;
+                font-size: 15px;
+                padding-bottom: 10px;
+            }
+            .footer-section ul {
+                list-style-type: none;
+                padding: 0;
+            }
+            .footer-section ul li {
+                margin: 10px 0;
+            }
+            .footer-section ul li a,
+            .footer-section p a {
+                color: white; 
+                text-decoration: none;
+            }
+            .footer-section ul li a:hover,
+            .footer-section p a:hover {
+                color: yellow; 
+                text-decoration: underline;
+            }
+            .footer-contact p,
+            .footer-contact a {
+                color: white;
+            }
+            .footer-contact a {
+                text-decoration: none;
+            }
+            .footer-contact a:hover {
+                color: yellow;
+                text-decoration: underline;
+            }
+            .footer-copyright {
+                margin-top: 20px;
+                text-align: center;
+                width: 100%;
+                border-top: 1px solid #555;
+                padding-top: 10px;
+                font-size: 14px;
+            }
+            .social-icons {
+                margin-top: 20px;
+                text-align: left;
+            }
+            .social-icons a {
+                margin: 0 10px;
+                font-size: 20px;
+                text-decoration: none;
+            }
+            .social-icons a img {
+                width: 30px; /* Adjust size as needed */
+                height: 30px; /* Adjust size as needed */
+            }
+            .social-icons a:hover img {
+                filter: brightness(0.8); /* Darkens icon on hover */
+            }
+        </style>
+    </head>
+    
+    <body>
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section footer-about">
+                    <h3>ABOUT US</h3>
+                    <p>Welcome to Vogue Men Store! where classic style and cutting-edge design of masculine mans out there. We also will handpick a line of men's apparel that combines modern flair with flawless craftsmanship final product.</p>
+                    <ul>
+                        <li><a href="aboutus.html" target="_blank">More About Us</a></li>
+                        <li><a href="term.html" target="_blank">Terms and Conditions</a></li>
+                        <li><a href="privacy.html" target="_blank">Privacy and Policies</a></li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/yourprofile" target="_blank"><img src="image\instagram.png" alt="Instagram"></a>
+                        <a href="https://www.tiktok.com/@yourprofile" target="_blank"><img src="image\tiktok.png" alt="TikTok"></a>
+                        <a href="https://t.me/yourprofile" target="_blank"><img src="image\telegram.png" alt="Telegram"></a>
+                        <a href="https://wa.me/yourphonenumber" target="_blank"><img src="image/whatsapp.png" alt="WhatsApp"></a>
+                        <a href="https://www.facebook.com/yourprofile" target="_blank"><img src="image/facebook.png" alt="Facebook"></a>
+                    </div>
+                </div>
+                <div class="footer-section footer-contact">
+                    <h3>LOCATIONS</h3>
+                    <h4>Our HQ Location</h4>
+                    <p>Vogue Men Store, Lot 332, Level 3, Suria KLCC, 50088, Federal Territory of Kuala Lumpur, Malaysia. </p>
+                    <h4>Our Branches</h4>
+                    <ul>
+                        <li>
+                            <p><strong>City Square Mall:</strong> <a href="https://maps.app.goo.gl/yUHLrrZ1FeWoxBVp6" target="_blank">Lot 224, Level 2, City Square Mall, 80000, Johor Bahru, Johor, Malaysia</a></p>
+                        </li>
+                        <li>
+                            <p><strong>Sunway Pyramid:</strong> <a href="https://maps.app.goo.gl/mL9m1P7voKevX2sv7" target="_blank">Lot 221, Level 1, Sunway Pyramid, Petaling Jaya, 47500, Selangor, Malaysia</a></p>
+                        </li>
+                        <li>
+                            <p><strong>Aman Central:</strong> <a href="https://maps.app.goo.gl/FBbL2nEZANPWWFKW7" target="_blank">Lot 122, Level 1, Aman Central, Alor Setar, 05000, Kedah, Malaysia</a></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer-section footer-branches">
+                    <h3>REFERENCES</h3>
+                    <h4><p>Customer Service Number (copy to clipboard)</p></h4>
+                    <p><a id="phone1" onclick="copyToClipboard('phone1')">+6014 - 930 7134</a></p>
+                    <h4><p>E-mail for any inquiries (copy to clipboard)</p></h4>
+                    <p><a id="email" onclick="copyToClipboard('email')">khamisanammar@gmail.com</a></p>
+                    <ul>
+                        <li><p><strong>Store Hours:</strong> 9am - 9pm, open on Sunday to Friday (Closed on Saturday)</p></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                &copy; Vogue Men Store, LCC. All rights reserved 2024.
+            </div>
+        </footer>
+    
+        <script>
+            function copyToClipboard(elementId) {
+                var textToCopy = document.getElementById(elementId).innerText;
+                var tempInput = document.createElement('input');
+                tempInput.value = textToCopy;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand('copy');
+                document.body.removeChild(tempInput);
+                alert('Copied to clipboard: ' + textToCopy);
+            }
+        </script>
+    </body>
+    </html>
